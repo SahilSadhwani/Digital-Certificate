@@ -100,7 +100,7 @@ $organization_id = 13; //to be commented afterwards when involving sessions
                     <div class="certificate-image" style="padding: 50px;">
                     <div class="image-outer" style="padding: 20px; padding-left: 60px;">
 <!--                        <div class="image-inner">-->
-                            <img src="../../assets/images/certificate_templates/Group%204.png" alt="Work" class="img-responsive">
+                            <img src="../../assets/images/certificate_templates/t1.png" alt="Work" class="img-responsive">
 <!--                        </div>-->
                     </div>
                     </div><!--Certifiacte Image-->
