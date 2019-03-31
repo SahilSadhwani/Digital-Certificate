@@ -1,9 +1,14 @@
 <?php
 include_once("../../functions/db.php");
 session_start();
-//$organization_id = $_SESSION["organization_id"]; to be uncommented
-$organization_id = 13; //to be commented afterwards when involving sessions
-
+$organization_id = $_SESSION["organization_id"]; //to be uncommented
+//$organization_id = 13; //to be commented afterwards when involving sessions
+//if(isset($_GET['template_id'])){
+//    echo "here";
+//    $template_id=$_GET['template_id'];
+//    echo $template_id;
+//    end();
+//    }
 if(isset($_POST["submit_generation"])){
     $name = $_POST["name"];
 //    $logo = $_POST["logo"];
@@ -15,12 +20,9 @@ if(isset($_POST["submit_generation"])){
 //    $signature_1_photo = $_POST["signature_1_photo"];
     $signature_2_name = $_POST["signature_2_name"];
 //    $excel_sheet = $_POST["excel_sheet"];
+    $template_id=$_POST['template_id'];
     
-    
-    
-    
-    
-    $query = "INSERT INTO generation(organization_id, template_id, commitee_name, certificate_title, issuer_name, higher_authority_name, date) VALUES($organization_id, '1','$commitee_name', '$certificate_title', '$signature_1_name', '$signature_2_name','$date')";
+    $query = "INSERT INTO generation(organization_id, template_id, commitee_name, certificate_title, issuer_name, higher_authority_name, date) VALUES($organization_id, '$template_id','$commitee_name', '$certificate_title', '$signature_1_name', '$signature_2_name','$date')";
     
 //    echo $query;
     
@@ -37,13 +39,17 @@ if(isset($_POST["submit_generation"])){
         $image_size = $_FILES['logo']['size'];
         $temp_name = $_FILES['logo']['tmp_name'];
         $file_type = $_FILES['logo']['type'];
+//        echo "here";
+        echo $image_name;
         
-//        echo $image_name;
+//        echo "ss";
 //        $file_extension = strtolower(end(explode(".",$image_name)));
     }
     
-    
+    $image_name=$recent_id.".png";
+//    echo "<br>".$image_name;
     if(isset($_FILES['logo'])){
+        echo 'here';
         move_uploaded_file($temp_name,"../logo_images/".$image_name);   
     }
 //    echo "ADDED";
@@ -69,7 +75,7 @@ if(isset($_POST["submit_generation"])){
 //        $file_extension = strtolower(end(explode(".",$image_name)));
     }
     
-    
+    $image_name=$recent_id.".png";
     if(isset($_FILES['signature_1_photo'])){
         move_uploaded_file($temp_name,"images/issuer_signature/".$image_name);   
     }
@@ -102,14 +108,15 @@ if(isset($_POST["submit_generation"])){
   email varchar(255) NOT NULL,
   qr_image varchar(255) NOT NULL,
   link varchar(255) NOT NULL,
+  previous_hash TEXT,
    PRIMARY KEY (student_id)
 )";
     
-    echo $sql;
+//    echo $sql;
     
     $result = mysqli_query($connection, $query);
     if (mysqli_query($connection, $sql)) {
-    echo "Table created successfully";
+//    echo "Table created successfully";
 } else {
     echo "Error creating table: " . mysqli_error($connection);
 }
@@ -154,7 +161,7 @@ $extension = strtolower(array_pop($value));
 //    $add = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(2, $row)->getValue());   
     $query = "INSERT INTO $commitee_name(student_name, class, rank, field, email) VALUES ('$student_name', '$class', '$rank', '$field', '$email')";
     mysqli_query($connection, $query);
-       echo $query;
+//       echo $query;
 //    $output .= '<td>'.$name.'</td>';
 //    $output .= '<td>'.$email.'</td>';
 ////    $output .= '<td>'.$add.'</td>';   
@@ -168,6 +175,10 @@ $extension = strtolower(array_pop($value));
  {
 //  $output = '<label class="text-danger">Invalid File</label>'; //if non excel file then
  }
+    
+header("Location: template.php");
+    
+    
 }
     
     

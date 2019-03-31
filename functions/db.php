@@ -1,11 +1,7 @@
 <?php
-$connection=mysqli_connect("localhost","Sahil","sahil123","digital_certificate");
+$connection=mysqli_connect("localhost","Sanjay","Sanjay#123","digital_certificate");
 if(!$connection)
 {
-//    echo "error in connection";
-    die("");
-}
-else{
-//    echo"connected";
+    echo "error in connection";
 }
 ?>

@@ -1,5 +1,8 @@
 <?php
  require_once("../../functions/db.php");
+$generation_id=$_GET['generation_id'];
+//$generation_id=2;
+//echo $generation_id;
 function display_students(){
     global $connection;
      $generation_id = $_GET['generation_id'];
@@ -16,13 +19,13 @@ function display_students(){
 //    $commitee_name = 'csi';
 //    $organisation_name = 'rait';
      $query2 = "select * from $commitee_name";
-    echo $query2;
+    //echo $query2
     $result2 = mysqli_query($connection , $query2);
     while($row2 = mysqli_fetch_assoc($result2)){
         $student_name = $row2['student_name'];
         $class = $row2['class'];
         $rank = $row2['rank'];
-        $field= $row2['field'];
+        $field= $row2['field']; 
 
         echo"<tr>";
         echo"<td>{$student_name}</td>";
@@ -66,7 +69,7 @@ function display_students(){
     <nav class="navbar-light bg-light" style="padding:20px;font-size:16px;">
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <a class="nav-link active" href="#" style="color:#B0413E ">Home</a>
+                <a class="nav-link active" href="requests.php" style="color:#B0413E ">Home</a>
             </li>
             <li class="nav-item">
                 <a class="logout btn" href="#" style="color:#fff;background-color:#b0413e; ">Logout</a>
@@ -77,7 +80,10 @@ function display_students(){
     </nav>
     <div class="container-fluid">
         <div class="row">
-
+            <?php
+            
+            ?>
+            
             <div class="col-md-5" style="overflow: scroll; height:89%;">
                 <table class="table table-striped table-hover">
                     <thead style="color:#b0413e;">
@@ -99,7 +105,7 @@ function display_students(){
             <!--col-md-5-->
             <div class="col-md-7" style="background-color: #b0413e; padding: 20px;">
                 <div>
-                    <img src="../../assets/images/certificate_inside_images/background1.jpg" alt="" style="height: 500px; width: 650px; padding: 30px; margin: 30px; margin-left: 100px;">
+                    <img src="../../assets/images/preview1.png" alt="" style="height: 500px; width: 650px; padding: 30px; margin: 30px; margin-left: 100px;">
                 </div>
                 <div class="row">
                     <div class="col-md-5">
@@ -126,7 +132,7 @@ function display_students(){
                 <div class="modal-body">
 
                     <div class="row">
-                        <form action="" method="" enctype="multipart/form-data">
+                        <form action="qr_generation.php" method="POST" enctype="multipart/form-data">
                             <div class="form-body">
                                 <div class="form-group clearfix">
 
@@ -134,7 +140,13 @@ function display_students(){
                                        <label for="">Upload your Signature <span style="color: red;">Please Upload a Transperent png. Tool: <a href="https://onlinepngtools.com/create-transparent-png">onlinepngtool</a></span></label>
                                         <input type="file" id="edit_category_id" name="higher_authority_signature"> 
                                     </div>
+                                    
+                                    <div class="col-md-9">
+                                        <input type="hidden" id="edit_category_id" name="generation_id" value="<?php echo $generation_id; ?>" > 
+                                    </div>
+                                    
                                 </div>
+                                
                                 <div class="modal-footer">
                                     <button id="" type="submit" class="btn btn-default" name="verify" style="background-color: #b0413e; color: white;" >Verify <i class="fa fa-check"></i></button>
                                 </div>

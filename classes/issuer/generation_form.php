@@ -2,9 +2,12 @@
 include_once("../../functions/db.php");
 ob_start();
 session_start();
-//$organization_id = $_SESSION["organization_id"]; to be uncommented
-$organization_id = 13; //to be commented afterwards when involving sessions
-
+$organization_id = $_SESSION["organization_id"];// to be uncommented
+//$organization_id = 13; //to be commented afterwards when involving sessions
+$template_id=$_GET['template_id'];
+//echo $template_id;
+    
+    
 ?>
 <html>
 
@@ -90,6 +93,12 @@ $organization_id = 13; //to be commented afterwards when involving sessions
                                 <div style="width: 50px; height: 3px; background:#b0413e; margin-bottom: 15px;"></div>
                                 <input type="file" id="" name="excel_sheet" class="">
                             </div>
+                            <div class="form-group">
+<!--                                <label for="">Upload Excel Sheet</label>-->
+<!--                                <div style="width: 50px; height: 3px; background:#b0413e; margin-bottom: 15px;"></div>-->
+                                <input type="hidden" id="" name="template_id" class="" value='<?php echo $template_id; ?>'>
+                            </div>
+                            
                             <button type="submit" class="btn" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2); background-color: #b0413e; padding: 10px; width: 25%; margiin-left: 30px; color: white;" name="submit_generation">Submit</button>
                         </form>
                     </div>
@@ -100,7 +109,7 @@ $organization_id = 13; //to be commented afterwards when involving sessions
                     <div class="certificate-image" style="padding: 50px;">
                     <div class="image-outer" style="padding: 20px; padding-left: 60px;">
 <!--                        <div class="image-inner">-->
-                            <img src="../../assets/images/certificate_templates/t1.png" alt="Work" class="img-responsive">
+                            <img src="../../assets/images/<?php echo $template_id;?>.png" alt="Work" class="img-responsive">
 <!--                        </div>-->
                     </div>
                     </div><!--Certifiacte Image-->

@@ -14,7 +14,7 @@ body{
 }
 
 .certificate-body{
-    background-image: url(../images/bg6.jpg);
+    background-image: url(../images/certificate_inside_images/bg6.jpg);
     background-repeat: no-repeat; 
     height: 100%;
     width: 100%;
@@ -28,8 +28,8 @@ body{
     font-family: 'Lobster', sans-serif;
     text-align: center;
     margin: 70px 50px 30px 70px;
-    padding: 20px;
-    
+    padding: 20px 20px 20px 90px;
+    left:50px;
 }
 .organisation{
     font-size: 25px;
@@ -70,7 +70,7 @@ body{
 .qr-code{
     text-align: right;
     display: inline-block;
-    border: solid 1px #000;
+/*    border: solid 1px #000;*/
     height: 100px;
     width: 100px;
     color: #999;
@@ -87,13 +87,13 @@ body{
 .logo{
     text-align: right;
     display: inline-block;
-    border: solid 1px #000;
+/*    border: solid 1px #000;*/
     height: 150px;
     width: 150px;
 /*    color: #999;s*/
     margin: 40px 40px 0 50px;
     float: left;
-    background: url(../images/logo.png)  no-repeat right top;
+/*    background: url(../images/certificate_inside_images/logo.png)  no-repeat right top;*/
     background-size: cover;
 }
 .logo image{
@@ -118,7 +118,7 @@ body{
 /*    position: relative;*/
     background:white;
     height: 100%;
-    border: solid 5px #939393;
+/*    border: solid 5px #929292;*/
     padding: 0;
 }
 .background{
@@ -132,10 +132,10 @@ body{
     border-top-width: 35px;
    
 */
-    border-top: solid 35px #494949;
-    border-right: solid 200px #5b5eab;
+/*    border-top: solid 35px #494949;*/
+    border-right: solid 200px #f8b508;
     border-bottom: solid 200px transparent;
-    border-left: solid 200px #43b6cd;
+    border-left: solid 200px #50a1ed;
 }
 .certificate-body-2{
     height: 100%;
@@ -144,16 +144,16 @@ body{
 }
 .certi-title-2 p{
     font-size: 50px;
-    font-family: 'Dancing Script', sans-serif;
+    font-family: 'Roboto Slab', sans-serif;
     text-align: center;
-    margin: 50px 50px 30px 70px;
+    margin: 20px 50px 30px 70px;
     padding: 20px;
     
 }
 .certi-body-2{
-    margin-top: 100px;
+    margin-top: 50px;
     font-size: 30px;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Roboto Slab', cursive;
 }
 .certi-body-2 span{
 /*    text-align: center;*/
@@ -162,13 +162,13 @@ body{
 .logo-2{
     text-align: right;
     display: inline-block;
-    border: solid 1px #000;
+/*    border: solid 1px #000;*/
     height: 150px;
     width: 150px;
 /*    color: #999;s*/
     margin: 40px 40px 0 10px;
     float: left;
-    background: url(images/logo.png) no-repeat right top;
+/*    background: url(../images/certificate_inside_images/logo.png) no-repeat right top;*/
     background-size: cover;
 }
 .logo-2 image{
@@ -187,8 +187,9 @@ body{
 }
 .certi-date-2{
     font-size: 30px;
-    font-family: 'Dancing Script',cursive;
-    margin-top: 150px;
+    font-family: 'Roboto Slab',cursive;
+    margin-top: 60px;
+    margin-bottom: 10px;
 /*    display: inline-block;*/
     margin-left: 5px;
 }
@@ -198,20 +199,18 @@ body{
 .sign2{
     text-align: left;
     display: inline-block;
-    margin: 100px 20px 0 0;
+    margin: 50px 20px 10px 0;
     font-size: 30px;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Roboto Slab', cursive;
 }
 .sign2 p{
     text-align: center;
 }
-/*******************************************************************
-                                TRY
-*********************************************************************/
-.try{
-    position: relative;
-    margin: 200px auto 0;
-    width: 400px;
-    height: 250px;
-    background: linear-gradient(0deg, #000, #292929);
+.organisation-2{
+    font-size: 25px;
+    font-family: 'Roboto Slab', sans-serif;
+    text-align: center;
+    font-weight: bold;
 }
+
+

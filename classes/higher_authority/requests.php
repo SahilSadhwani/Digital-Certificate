@@ -2,9 +2,12 @@
 <?php
 include_once("../../functions/db.php");
 session_start();
-//$organization_id = $_SESSION["organization_id"];
-$organization_id = 13;
+$organization_id = $_SESSION["organization_id"];
+//$organization_id = 13;
+if(isset($_GET['a'])){
 
+$a=$_GET['a'];
+}
 ?>
 <html lang="zxx" class="no-js">
 
@@ -34,10 +37,11 @@ $organization_id = 13;
 		<li class="nav-item">
 			<a class="nav-link active" href="#" style="color:#B0413E ">Home</a>
 		</li>
-		<li class="nav-item">
-			<a class="logout btn" href="#" style="color:#fff;background-color:#b0413e; ">Logout</a>
-		</li>
-		
+		<form action="logout.php" method="POST">
+            <li class="nav-item">
+                <a href="" class="logout btn" href="#" style="color:#fff;background-color:#b0413e; "><button type="submit" name="logout" style="background:none; border:none; color:#fff;">Logout</button></a>
+            </li>
+            </form>
 
 	</ul>
 	</nav>
@@ -49,7 +53,23 @@ $organization_id = 13;
 
 
 		<div class="container-fluid" style="position: absolute;bottom:375px;right:200px; background-color:#f9f9f9;width:1100px;height:450px;overflow: scroll">
+		<?php
+            if(isset($a)){
+              if($a==1)
+              {
+                ?>
+                <div class="alert alert-success alert-dismissible" style="margin-left:40px;margin-top:20px">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Success!</strong> Indicates a successful or positive action.
+</div>
+                  
+              <?php
+              }
+            }
+            ?>
 			<div class="row">
+			
+			    
 <!--
 				<div class="col-xs-4 col-sm-6 col-md-6 col-lg-5" style="background-color:#CEE5F2;margin:30px 0px 0px 55px;height:100px">
 					<p>hello hi</p>

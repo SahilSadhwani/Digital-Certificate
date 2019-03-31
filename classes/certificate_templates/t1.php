@@ -1,13 +1,53 @@
 <?php
-$student_name = "Vishal Israni";
-$field = "Academics";
-$rank = "1st";
-$class= "D15";
-$organisation_name = "VIVEKANAND INSTITUTE OF TECHNOLOGY";
-$date = "22/07/2018";
-$signature_1 = "Signature";
-$signature_2 = "Signature";
-$certificate_title = "Certificate of Achievement";
+include_once("../../functions/db.php");
+
+$generation_id=$_GET['generation_id'];
+$student_id=$_GET['student_id'];
+//echo $generation_id;
+//echo $student_id;
+$query="Select * from generation where generation_id=$generation_id";
+$result=mysqli_query($connection,$query);
+$row=mysqli_fetch_assoc($result);
+$certificate_title=$row['certificate_title'];
+$signature_1=$row['issuer_name'];
+$signature_2=$row['higher_authority_name'];
+$date=$row['date'];
+$issuer_signature=$row['issuer_signature'];
+//echo $issuer_signature;
+$higher_authority_signature=$row['higher_authority_signature'];
+//echo $higher_authority_signature;
+//$qr_code=$row[''];
+$committee_name=$row['commitee_name'];
+//echo $committee_name;
+$logo=$row['logo'];
+
+
+
+
+
+
+
+$query="select * from $committee_name where student_id=$student_id";
+$result=mysqli_query($connection,$query);
+$row=mysqli_fetch_assoc($result);
+$student_name=$row['student_name'];
+$field=$row['field'];
+$class=$row['class'];
+$rank=$row['rank'];
+$qr_code=$row['qr_image'];
+echo $qr_code;
+
+
+
+//$student_name = "Vishal Israni";
+//$field = "Academics";
+//$rank = "1st";
+//$class= "D15";
+$organisation_name = "RAIT";
+//$date = "22/07/2018";
+//$signature_1 = "Signature";
+//$signature_2 = "Signature";
+//$certificate_title = "Certificate of Achievement";
 $committee_name = "CSI";
 
 ?>
@@ -31,13 +71,13 @@ $committee_name = "CSI";
            <div class="certificate-body">
              <div class="certi-qr-code">
                  <div class="qr-code">
-                   <img src="../../assets/images/certificate_inside_images/qr-code.png" alt="">
+                   <img src="../higher_authority/images/<?php echo $qr_code; ?>" alt="">
                </div>
             </div>
  
                <div class="certi-logo">
                <div class="logo">
-                   
+                   <img src="../logo_images/<?php echo $logo;?>" alt="" style="width:100px;height:100px;">
                </div>
                </div>
                
@@ -48,7 +88,7 @@ $committee_name = "CSI";
                    <p><?php echo $organisation_name?></p>
                </div>
                <div class="certi-body">
-                   <p>This is to certify <span><?php echo $student_name;?>  </span> has secured <?php echo $rank; ?> rank of class <?php echo $class;?> for <br>his/her performance in <span>  <?php echo $field;?>  </span></p>
+                   <p>This is to certify <span><?php echo $student_name;?>  </span> has secured <?php echo $rank; ?> rank of class <?php echo $class;?> for <br>his/her performance in <span>  <?php echo $field;?>  Competion </span></p>
                    
                </div><!--certi-body-->
                
@@ -58,12 +98,13 @@ $committee_name = "CSI";
                </div>
                <div class="col-md-4 col-sm-4 col-xs-4">
                <div class="sign1">
-                   <p><image class="sign" src="../../assets/images/certificate_inside_images/signature.png"></image></p><p><?php echo $signature_1;?></p>
+                   <p><image class="sign" src="../issuer/images/issuer_signature/<?php echo $issuer_signature?>"></image></p><p><?php echo $signature_1;?></p>
                </div>
+               
                </div>
                <div class="col-md-4 col-sm-4 col-xs-4">
                <div class="sign1">
-                   <p><image class="sign"></image></p><p><?php echo $signature_2; ?></p>
+                   <p><image class="sign" src="../higher_authority/images/higher_authority_signature/<?php echo $higher_authority_signature ?>"></image></p><p><?php echo $signature_2; ?></p>
                </div>
                </div>
                 </div><!--row-->

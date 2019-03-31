@@ -114,6 +114,7 @@ $orphange_name="Manreka";
             <img src="../../assets/images/certificate_inside_images/background1.jpg" width=842 height=595></div>
         <div style="position:absolute;left:225.90px;top:60.85px" class="cls_002"><span class="cls_002"><?php echo $certificate_title?></span></div>
         <div style="position:absolute;left:170.90px;top:120.85px" class="cls_002"><span class="cls_002"><?php echo $organisation_name?></span></div>
+<!--         <div style="position:absolute;left:-20.22px;top:10.62px" class="cls_003"><span class="cls_003"><p><image class="logo" src="../../assets/images/certificate_inside_images/qr-code.png"></image></p></span></div>-->
         <div style="position:absolute;right:20.22px;top:120.62px" class="cls_003"><span class="cls_003"><p><image class="qr-code" src="../../assets/images/certificate_inside_images/qr-code.png"></image></p></span></div>
         <div style="position:absolute;left:294.89px;top:182.81px" class="cls_003"><span class="cls_003">THIS CERTIFICATE GOES TO</span></div>
         <div style="position:absolute;left:220.85px;top:234.28px;" class="cls_004"><span class="cls_004"><?php echo $student_name?></span></div>
