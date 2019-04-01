@@ -170,6 +170,7 @@ for($i=1; $i<=$num; $i++){
 //        echo $obj->previousHash();
     }else{
         $previousHash = $_SESSION["previousHash"];
+        echo "inserting this hash of preivous row ".($i-1)." in ".$i." row  ".$previousHash; 
         $obj = new Block($student_id,$student_name,$class,$rank,$field,$email);
 //        $obj->previousHash();
 //        echo $obj->student_id." ";
@@ -194,7 +195,7 @@ for($i=1; $i<=$num; $i++){
     echo "<br>";
     echo "here";
     echo $emails;
-    header("Location: phpmailer/my_mail.php?email=$emails&link=$link");
+//    header("Location: phpmailer/my_mail.php?email=$emails&link=$link");
 //    header("Location: requests.php?a=1");
     
     

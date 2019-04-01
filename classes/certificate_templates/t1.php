@@ -1,6 +1,7 @@
 <?php
 include_once("../../functions/db.php");
-
+session_start();
+$organisation_id=$_SESSION['organization_id'];
 $generation_id=$_GET['generation_id'];
 $student_id=$_GET['student_id'];
 //echo $generation_id;
@@ -23,10 +24,6 @@ $logo=$row['logo'];
 
 
 
-
-
-
-
 $query="select * from $committee_name where student_id=$student_id";
 $result=mysqli_query($connection,$query);
 $row=mysqli_fetch_assoc($result);
@@ -35,7 +32,7 @@ $field=$row['field'];
 $class=$row['class'];
 $rank=$row['rank'];
 $qr_code=$row['qr_image'];
-echo $qr_code;
+//echo $qr_code;
 
 
 
@@ -43,7 +40,12 @@ echo $qr_code;
 //$field = "Academics";
 //$rank = "1st";
 //$class= "D15";
-$organisation_name = "RAIT";
+$query="select * from organization where organization_id=$organisation_id";
+$result=mysqli_query($connection,$query);
+$row=mysqli_fetch_assoc($result);
+$organisation_name=$row['name'];
+
+//$organisation_name = "RAIT";
 //$date = "22/07/2018";
 //$signature_1 = "Signature";
 //$signature_2 = "Signature";

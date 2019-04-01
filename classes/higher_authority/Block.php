@@ -97,7 +97,8 @@ class Block{
         
         
         
-        $this->hash2 = hash("sha256", $this->student_id.$this->previousHash.$this->student_name.(string)$this->class1.$this->rank.$this->field.$this->email);
+        $hash2 = hash("sha256", $student_id.$previousHash.$student_name.(string)$class1.$rank.$field.$email);
+        echo $hash2."<br>";
         
         $file = fopen($filename.".txt","r");
         
@@ -105,19 +106,27 @@ class Block{
         while(! feof($file))
         {
           $text = fgets($file);
+//        echo $text."<br>".(string)($student_id+1)."<br>";
           $line = $line+1;
-          if($text == (string)($student_id+1)){
+//            echo gettype($text);
+//            echo gettype((string)($student_id+1));
+          if($text == ($student_id+1)){
               break;
+//              echo "hi";                    
           }
         }
+//        echo $line."<br>";
         
-        $lines = file($file);//file in to an array
-        $str = $lines[$student_id+2];
+        $lines = file($filename.".txt");//file in to an array
+        $str = $lines[$line+1];
         echo $str;
         
+        if($hash2 == $str){
+            echo "true";
+        }
         
 
-fclose($file);
+        fclose($file);
        
         
         

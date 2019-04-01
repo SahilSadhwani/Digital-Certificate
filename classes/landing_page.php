@@ -132,13 +132,13 @@
 
 	<div class="container-fluid" style="margin-top:60px;background-color:#bd4642;">
 		<div class="row">
-			<div class="col-md-6 js-tilt" data-tilt>
+			<div class="col-md-6 js-tilt" >
 				<img src="../assets/images/2.png" alt="">
 			</div>
 			<div class="col-md-5 type">
 				<h2 style="color:#fff;padding-bottom:10px;letter-spacing:3px;"><i>Digital Certificate Generation!</i></h2>
 				<p style="text-align:justify;color:#fff;font-size:18px;">As it has been observed that the forgery of the the certificates has been increasing gradually.Also, a lot of paper is been wasted for generating hard copies of certificates. This issue can be solved by creating digital certificates i.e. e-certificates. The digital certificates can be generated with a QR-code on certificate using the blockchain technology. Currently, there are multiple numbers of ways through which one can verify the existence of a certificates an individual has on theblockchain. The easiest of them isto upload/scan the certificates to verify its existence. Upon uploading of the certificates,the proof of its existence gets verified, as the cryptographic digest and the marker for the transaction are also verified.</p>
-				<button class="btn generate" style="width:180px;height:60px;border:2px solid #fff;color:#fff;background-color:#b0413e;margin-left:200px;margin-top:30px;padding:15px;font-size:20px">Generate Now -></button>
+                <a href="login/login.php"><button class="btn generate" style="width:180px;height:60px;border:2px solid #fff;color:#fff;background-color:#b0413e;margin-left:200px;margin-top:30px;padding:15px;font-size:20px">Generate Now -></button></a>
 
 			</div>
 

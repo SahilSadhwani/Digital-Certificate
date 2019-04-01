@@ -1,5 +1,7 @@
 <?php
 include_once("../../functions/db.php");
+session_start();
+$organisation_id=$_SESSION['organization_id'];
 
 $generation_id=$_GET['generation_id'];
 $student_id=$_GET['student_id'];
@@ -31,7 +33,7 @@ $field=$row['field'];
 $class=$row['class'];
 $rank=$row['rank'];
 $qr_code=$row['qr_image'];
-echo $qr_code;
+//echo $qr_code;
 
 
 
@@ -42,7 +44,12 @@ echo $qr_code;
 //$field = "Academics";
 //$rank = "1st";
 //$class= "D15";
-$organisation_name = "VIVEKANAND INSTITUTE OF TECHNOLOGY";
+$query="select * from organization where organization_id=$organisation_id";
+$result=mysqli_query($connection,$query);
+$row=mysqli_fetch_assoc($result);
+$organisation_name=$row['name'];
+
+//$organisation_name = "VIVEKANAND INSTITUTE OF TECHNOLOGY";
 //$date = "22/07/2018";
 //$signature_1 = "Signature";
 //$signature_2 = "Signature";
@@ -52,9 +59,8 @@ $organisation_name = "VIVEKANAND INSTITUTE OF TECHNOLOGY";
 ?>
    <html>
     <head>
-       <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 
-        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 
        <link rel="stylesheet" href="../../assets/css/bootstrap/bootstrap.min.css">
        
@@ -78,7 +84,7 @@ $organisation_name = "VIVEKANAND INSTITUTE OF TECHNOLOGY";
                <div class="logo">
                    <img src="../logo_images/<?php echo $logo;?>" alt="" style="width:100px;height:100px;margin-top:40%;">
                </div>
-               </div>s
+               </div>
                 <div class="certi-title-2">
                    <p style="margin-left:22%">Certificate of <?php echo $certificate_title?></p>
                </div><!--certi-title-2-->
@@ -95,12 +101,12 @@ $organisation_name = "VIVEKANAND INSTITUTE OF TECHNOLOGY";
                </div>
                <div class="col-md-4 col-sm-4">
                <div class="sign2">
-                   <p><image class="sign" src="../issuer/images/issuer_signature/<?php echo  $issuer_signature;?>"></image></p><p>Signature 1</p>
+                   <p><image class="sign" src="../issuer/images/issuer_signature/<?php echo  $issuer_signature;?>"></image></p><p><?php echo $signature_1;?> </p>
                </div>
                </div>
                <div class="col-md-4 col-sm-4">
                <div class="sign2">
-                   <p><image class="sign" src="../higher_authority/images/higher_authority_signature/<?php echo $higher_authority_signature ?>"></image></p><p>Signature 1</p>
+                   <p><image class="sign" src="../higher_authority/images/higher_authority_signature/<?php echo $higher_authority_signature ?>"></image></p><p><?php echo $signature_2;?></p>
                </div>
                </div>
                 </div><!--row-->

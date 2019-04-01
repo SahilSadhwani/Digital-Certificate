@@ -26,6 +26,7 @@ if(isset($_POST['submit'])){
         }
         else
         {
+            $_SESSION['organization_id']=$organization_id;
             header("Location: ../higher_authority/requests.php");
         }
     }
